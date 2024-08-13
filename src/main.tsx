@@ -2,9 +2,14 @@ import "./styles/main.scss";
 // watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
 
 import ReactDOM from "react-dom/client";
+import Header from "./components/Header/Header";
 
 function AppContainer() {
-  return null;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById("app")!).render(<AppContainer />);

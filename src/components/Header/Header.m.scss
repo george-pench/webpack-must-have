@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: $backgroundColor;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  .title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $primaryTextColor;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navLink {
+  text-decoration: none;
+  color: $textColor;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $primaryColor;
+  }
+}
+
+.userActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.authButton {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $primaryTextColor;
+  background-color: $backgroundColor;
+  border: 2px solid $primaryColor;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $primaryColor;
+    color: $primaryTextColor;
+  }
+}
