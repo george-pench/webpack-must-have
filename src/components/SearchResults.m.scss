@@ -1,0 +1,43 @@
+.searchResults {
+  background-color: $backgroundColor;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    color: $primaryTextColor;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+}
+
+.resultsList {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.resultItem {
+  background-color: $lightTextColor;
+  border: 1px solid $borderColor;
+  border-radius: 4px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.3s;
+  color: $textColor;
+}
+
+.loading,
+.error,
+.noResults,
+.instruction {
+  text-align: center;
+  color: $basicColor;
+  font-style: italic;
+}
+
+.error {
+  color: $accentColor;
+}
