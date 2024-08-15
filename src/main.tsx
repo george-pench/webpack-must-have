@@ -8,6 +8,8 @@ import Header from "./components/Header/Header";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function AppContainer() {
   return (
@@ -15,11 +17,14 @@ function AppContainer() {
       <Router>
         <div>
           <Header />
-          <Routes>
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <ErrorBoundary fallback={<h1>Something went wrong.</h1>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </ErrorBoundary>
         </div>
       </Router>
     </AuthProvider>
