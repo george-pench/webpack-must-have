@@ -1,8 +1,13 @@
-const API_BASE_URL = "https://localhost:44311/api/games";
+import { API_URLS } from "../config/apiConfig";
 
 const searchItems = async (term: string, limit: number = 10, offset: number = 0) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/search?term=${encodeURIComponent(term)}&limit=${limit}&offset=${offset}`);
+    const url = new URL(API_URLS.SEARCH);
+    url.searchParams.append("term", term);
+    url.searchParams.append("limit", limit.toString());
+    url.searchParams.append("offset", offset.toString());
+
+    const response = await fetch(url.toString());
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
