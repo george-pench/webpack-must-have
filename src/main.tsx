@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import ErrorBoundary from "./components/ErrorBoundary";
+import GameDetails from "./components/GameDetails";
 import { store } from "./store";
 
 function AppContainer() {
@@ -23,6 +24,7 @@ function AppContainer() {
             <ErrorBoundary fallback={<h1>Something went wrong.</h1>}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/game/:id" element={<GameDetails />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/profile" element={<Profile />} />

@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { debounce } from "lodash";
+import { Link } from "react-router-dom";
 import { AppDispatch, RootState } from "../store";
 import { setQuery, setResults, setLoading, setError } from "../store/searchSlice";
 import searchItems from "../services/api";
@@ -51,11 +52,11 @@ function Search(): React.ReactElement {
         {results.length > 0 ? (
           results.map((result: Game) => (
             <li key={result.id} className={styles.searchResultItem}>
-              {result.name}
+              <Link to={`/game/${result.id}`}>{result.name}</Link>
             </li>
           ))
         ) : (
-          <li className={styles.searchResultItem}>No results found</li>
+          <li className={styles.noResults}>No results found</li>
         )}
       </ul>
     </div>
