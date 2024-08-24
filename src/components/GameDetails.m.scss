@@ -1,0 +1,60 @@
+.gameDetails {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-large;
+  background-color: $backgroundColor;
+  border-radius: $border-radius-large;
+  box-shadow: $box-shadow-medium;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: $spacing-medium;
+  padding: $spacing-small $spacing-medium;
+  background-color: $buttonColor;
+  color: $buttonTextColor;
+  text-decoration: none;
+  border-radius: $border-radius-small;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $buttonHoverColor;
+    transform: translateY(-2px);
+  }
+}
+
+h1 {
+  color: $primaryTextColor;
+  margin-bottom: $spacing-medium;
+  font-weight: bold;
+}
+
+.gameImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: $border-radius-medium;
+  margin-bottom: $spacing-medium;
+  box-shadow: $box-shadow-large;
+}
+
+p {
+  line-height: 1.6;
+  color: $textColor;
+  margin-bottom: $spacing-small;
+}
+
+.gameInfo {
+  background-color: $lightTextColor;
+  border-radius: $border-radius-medium;
+  padding: $spacing-medium;
+  margin-top: $spacing-medium;
+  box-shadow: $box-shadow-small;
+
+  strong {
+    color: $primaryTextColor;
+    font-weight: bold;
+  }
+}

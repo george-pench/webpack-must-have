@@ -1,0 +1,60 @@
+.header {
+  background-color: $backgroundColor;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $textColor;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  margin-right: 2rem;
+}
+
+.navLink {
+  color: $textColor;
+  margin-left: 1rem;
+  text-transform: none;
+  font-weight: normal;
+
+  &:hover {
+    background-color: transparent;
+    color: $linkHoverColor;
+  }
+}
+
+.userActions {
+  display: flex;
+}
+
+.authButton {
+  color: $textColor;
+  text-transform: none;
+  font-weight: normal;
+  margin-left: 1rem;
+
+  &:hover {
+    background-color: transparent;
+    color: $linkHoverColor;
+  }
+}
+
+.navLink.active {
+  color: $primaryColor;
+  font-weight: bold;
+}

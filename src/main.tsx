@@ -1,51 +1,40 @@
 import "./styles/main.scss";
 // watch: native intellisense and file-peek for aliases from jsconfig.json and with none-js files doesn't work: https://github.com/microsoft/TypeScript/issues/29334
 
-import { Component, ErrorInfo /* , StrictMode */ } from "react";
 import ReactDOM from "react-dom/client";
-import TheHeader from "./components/theHeader";
-import Login from "./components/account/login";
-import apiEndpoints from "./api.endpoints";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { AuthProvider } from "./contexts/AuthContext";
+import Header from "./components/Header/Header";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import ErrorBoundary from "./components/ErrorBoundary";
+import GameDetails from "./components/GameDetails";
+import { store } from "./store";
 
-interface Props {}
-interface State {}
-
-async function testFetch(): Promise<void> {
-  const data = await (await fetch(apiEndpoints.testMock)).json();
-  console.warn("fetched data", data);
-}
-
-class AppContainer extends Component<Props, State> {
-  // ["constructor"]: typeof AppContainer;
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {};
-    // test class-dead-code
-    const goExclude = true;
-    if (!goExclude) {
-      console.warn("class-dead-code doesn't work", props);
-    }
-  }
-
-  componentDidMount(): void {
-    setTimeout(testFetch, 300);
-  }
-
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    console.error("got err", { error, errorInfo });
-  }
-
-  render() {
-    return (
-      // <StrictMode>
-      <>
-        <TheHeader />
-        <Login />
-      </>
-      // </StrictMode>
-    );
-  }
+function AppContainer() {
+  return (
+    <Provider store={store}>
+      <AuthProvider>
+        <Router>
+          <div>
+            <Header />
+            <ErrorBoundary fallback={<h1>Something went wrong.</h1>}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/game/:id" element={<GameDetails />} />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/profile" element={<Profile />} />
+              </Routes>
+            </ErrorBoundary>
+          </div>
+        </Router>
+      </AuthProvider>
+    </Provider>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById("app")!).render(<AppContainer />);
